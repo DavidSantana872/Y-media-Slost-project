@@ -21,11 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
     $premios = obtener_premios($db);
     if ($premios === false) {
+        http_response_code(500);
         echo json_encode(['error' => 'Failed to obtain awards']);
         exit;
     }
     $winner = generate_winner($purchaseNumber, $premios, $db);
     if ($winner === false) {
+        http_response_code(500);
         echo json_encode(['error' => 'Failed to generate winner']);
         exit;
     }
