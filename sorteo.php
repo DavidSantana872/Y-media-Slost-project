@@ -13,16 +13,23 @@ header("Content-Type: application/json");
 # parámetro 2 > purchaseNumber
 # parámetro 3 > awardName
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $userId = $_GET['userId'] ?? null;
-    $purchaseNumber = $_GET['purchaseNumber'] ?? null;
-
+    $userId = filter_input(INPUT_GET, 'userId', FILTER_SANITIZE_NUMBER_INT);
+    $purchaseNumber = filter_input(INPUT_GET, 'purchaseNumber', FILTER_SANITIZE_NUMBER_INT);
     if (empty($userId) || empty($purchaseNumber)) {
-        echo json_encode(['error' => 'Faltan parámetros']);
+        echo json_encode(['error' => 400]);
+        exit;
+    }
+    $premios = obtener_premios($db);
+    if ($premios === false) {
+        echo json_encode(['error' => 'Failed to obtain awards']);
+        exit;
+    }
+    $winner = generate_winner($purchaseNumber, $premios, $db);
+    if ($winner === false) {
+        echo json_encode(['error' => 'Failed to generate winner']);
         exit;
     }
 
-    $premios = obtener_premios($db);
-    $winner = generate_winner($purchaseNumber, $premios, $db);
     echo json_encode(['userId' => $userId, 'purchaseNumber' => $purchaseNumber, 'awardName' => $winner]);
     exit;
 }
