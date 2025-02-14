@@ -12,11 +12,11 @@ parámetro 2 > numeroCompra
 parámetro 3 > premioName
 
 # --- Respuesta de endpoint ---
-# {
-#  "userId": "12",
-#  "purchaseNumber": "2500",
-#  "premioName": "🇧🇷 Viaje a Brasil para 2 personas"
-# }
+{
+  "userId": "12",
+  "purchaseNumber": "2500",
+  "premioName": "🇧🇷 Viaje a Brasil para 2 personas"
+}
 
 # --- Functions.php --- 
 
