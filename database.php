@@ -13,7 +13,7 @@ $db->exec("CREATE TABLE IF NOT EXISTS premios (
 )");
 $db->exec("DELETE FROM premios"); // limpiando datos
 $db->exec("INSERT INTO premios (nombre, cada_n_compras, disponibles) VALUES 
-    ('🎁 Voucher 10,000 pesos', 5, 10),   
+    ('🎁 Voucher 10,000 pesos', 5, 1000),   
     ('🎁 Voucher 20,000 pesos', 25, 200),  
     ('🌸 Perfume', 10, 500),               
     ('✈️ Viaje aéreo para 2 personas', 500, 10),          
