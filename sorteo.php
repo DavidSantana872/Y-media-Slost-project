@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $purchaseNumber = $_GET['purchaseNumber'] ?? null;
 
     if (empty($userId) || empty($purchaseNumber)) {
-        echo json_encode(['error' => 'Faltan parámetros', 'purchaseNumber' => $purchaseNumber, 'userId' => $userId]);
+        echo json_encode(['error' => 'Faltan parámetros']);
         exit;
     }
 
