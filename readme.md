@@ -4,18 +4,18 @@
 
 # --- Actuales Entradas ---
 parámetro 1 > userId
-parámetro 2 > numeroCompra
+parámetro 2 > purchaseNumber
 
 # -- Actuales Salida
 parámetro 1 > userId
-parámetro 2 > numeroCompra
-parámetro 3 > premioName
+parámetro 2 > purchaseNumber
+parámetro 3 > awardName
 
 # --- Respuesta de endpoint ---
 {
   "userId": "12",
   "purchaseNumber": "2500",
-  "premioName": "🇧🇷 Viaje a Brasil para 2 personas"
+  "awardName": "🇧🇷 Viaje a Brasil para 2 personas"
 }
 
 # --- Functions.php --- 
