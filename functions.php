@@ -1,0 +1,23 @@
+<?php
+    include_once "database.php";
+    global $viajeBrasil, $auto;
+    $viajeBrasil = 2500;
+    $auto = 4950;
+    function generate_winner ($num_compra, $premios, $db){
+        global $viajeBrasil, $auto;
+        foreach ($premios as &$premio) { 
+            if ($num_compra ==  $premio['cada_n_compras']) {
+                if ($premio['disponibles'] > 0) {
+                    update_disponibilidad($db, $premio, $premio['disponibles'] - 1);
+                    return $premio['nombre'];
+                }else{
+                    return false;
+                }
+            } elseif ($num_compra % $premio['cada_n_compras'] == 0 && $premio['disponibles'] > 0 && $num_compra != $viajeBrasil && $num_compra != $auto) {
+                update_disponibilidad($db, $premio, $premio['disponibles'] - 1);
+                return $premio['nombre'];
+            }
+        }
+        return false;
+    }
+?>
