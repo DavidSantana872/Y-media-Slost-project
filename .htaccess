@@ -1,3 +1,35 @@
+# Habilitar mod_rewrite para URLs limpias
+Options +FollowSymLinks
 RewriteEngine On
+
+# Redirigir todas las solicitudes a index.php si no existe un archivo o directorio con el nombre solicitado
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Permitir el acceso CORS (útil si tu API o frontend está en otro dominio)
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+</IfModule>
+
+# Asegurar que los archivos JavaScript se sirvan con el MIME correcto
+<IfModule mod_mime.c>
+    AddType application/javascript .js
+</IfModule>
+
+# Habilitar compresión para mejorar el rendimiento
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
+</IfModule>
+
+# Habilitar cacheo de archivos estáticos para mejorar el rendimiento
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+</IfModule>
