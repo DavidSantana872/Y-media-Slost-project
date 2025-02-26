@@ -3,9 +3,11 @@
   var items = [];
   var winnerStatus = false;
   const doors = document.querySelectorAll(".door");
-  document.querySelector("#reseter").addEventListener("click", init);
 
-  document.querySelector("#spinner").addEventListener("click", function() {
+  
+
+  document.querySelector("#slot-machine-video-btn").addEventListener("click", function() {
+    // reproducir video play 
     const button = this;
     const userId = button.getAttribute("data-user-id");
     const purchaseNumber = button.getAttribute("data-purchase-number");
@@ -15,13 +17,17 @@
     const telephone = button.getAttribute("data-telephone");
     const bank = button.getAttribute("data-bank");
     spin(userId, purchaseNumber, name, lastName, email, telephone, bank);
+    const video = document.getElementById("slot-machine-video");
+    video.play();
   });
+
 
   async function spin(userId, purchaseNumber, name, lastName, email, telephone, bank) {
     let res = await getAward(userId, purchaseNumber, name, lastName, email, telephone, bank);
     let data = await res.json();
     winnerStatus = data.winnerStatus;
     items = (data.slots);
+    backgroundMachine(winnerStatus)
 
     init(false, 1, 10);
     for (const door of doors) {
@@ -42,6 +48,10 @@
     
   }
 
+  function backgroundMachine(winner){
+    let video = document.getElementById("slot-machine-video");
+    video.src = winner ? "./resources/video/winner.mp4" : "./resources/video/loser.mp4";
+  } 
   function init(firstInit = true, groups = 1, duration = 1) {
     for (const door of doors) {
       // validar si ya se ha girado 
@@ -174,3 +184,4 @@ function showModal(id) {
 function showLoadDataWinner(id, data){
   document.getElementById(id).innerHTML = data;
 }
+

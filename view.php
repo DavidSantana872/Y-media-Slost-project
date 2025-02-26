@@ -23,12 +23,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sorteo Tienda Perfumes</title>
+    <link rel="icon" href="./resources/img/background-modal.png">
     <link rel="stylesheet" href="./resources/style/view-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300..700&display=swap" rel="stylesheet">
-</head>
+    <link href="https://fonts.cdnfonts.com/css/casino" rel="stylesheet">
+                
 <body>
     <section class="background-modal" id="background-modal">
     <div id="welcome-modal" class="modal">
@@ -109,28 +111,10 @@
 
     <div class="main_box">
         <h1>
-            Bienvenido al sorteo
+        ¡Tira de la palanca y prueba tu suerte!
         </h1>
         <div id="app">
-            <div class="doors">
-                <div class="door">
-                    <div class="boxes">
-                    </div>
-                </div>
-
-                <div class="door">
-                    <div class="boxes">
-                    </div>
-                </div>
-
-                <div class="door">
-                    <div class="boxes">
-                    </div>
-                </div>
-            </div>
-
-            <div class="buttons">
-                <button id="spinner" 
+            <div id="slot-machine-video-btn"
                   data-user-id="<?php echo ($userId); ?>" 
                   data-purchase-number="<?php echo ($purchaseNumber); ?>" 
                   data-name="<?php echo ($name); ?>" 
@@ -138,15 +122,26 @@
                   data-email="<?php echo ($email); ?>" 
                   data-telephone="<?php echo ($telephone); ?>" 
                   data-bank="<?php echo ($bank); ?>" 
-                >
-                  Spin
-                </button>
-                <button id="reseter">Reset</button>
-            </div>
-
-            <p class="info"></p>
-            <video src=""></video>
+            ></div>
+            <video id="slot-machine-video" src="./resources/video/losser.mp4"></video>
         </div>
+        <!-- 
+        <div class="doors">
+                <div class="door">
+                    <div class="boxes">
+                    </div>
+                </div>
+
+                <div class="door">
+                    <div class="boxes">
+                    </div>
+                </div>
+
+                <div class="door">
+                    <div class="boxes">
+                    </div>
+                </div>
+            </div>doors -->
     </div>
 </body>
 </html>
