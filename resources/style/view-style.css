@@ -123,16 +123,16 @@
 
 .doors {
   display: flex;
-  width: 5.8rem;
-  height: 5.5rem;
+  width: 10.5rem;
+  height: 10.5rem;
   position: absolute;
-  margin-right: 9px;
-  margin-bottom: 12px;
+  margin-right: 4px;
+  margin-bottom: -20px;
 }
 
 .door {
   background: #ffffff00;
-  width: 2rem;
+  width: 3.5rem;
   overflow: hidden;
   border-radius: 1ex;
 }
@@ -184,6 +184,24 @@ ul {
 li {
   margin:24px 0;
 }
+
+#slot-machine-video-btn{
+ 
+  position: absolute;
+  right: 10px;
+  top: 260px;
+  width: 80px;
+  height: 270px;
+  z-index:1;
+  border: solid
+
+}
+#slot-machine-video-winner, #slot-machine-video-loser{
+  margin-top: 48px;
+  object-fit: cover;
+  width: 23rem;
+}
+
 /*
   Modal mobile
 */
@@ -205,32 +223,16 @@ li {
 @media (min-width: 769px){
   #welcome-modal, #winner-modal{
     width: 531px;
-  }  #app{
+  }  
+  #app{
     width: 60rem;
   }
   #slot-machine-video-winner, #slot-machine-video-loser {
-    width: 50rem !important;
+    width: 25rem !important;
   }
-  .doors{
-    width: 9rem;
-    margin-right: 12px;
-    height: 9rem;
+  
+  #slot-machine-video-btn{
+    right: 270px;
   }
 
-}
-
-#slot-machine-video-btn{
- 
-  position: absolute;
-  width: 40px;
-  height: 270px;
-  right: 100px;
-  top: 200px;
-  z-index:1;
-
-}
-#slot-machine-video-winner, #slot-machine-video-loser{
- 
-  object-fit: cover;
-    width: 32rem;
 }

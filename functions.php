@@ -31,8 +31,6 @@
             './resources/img/airplane.png', './resources/img/perfume.png', './resources/img/10k.png', './resources/img/20k.png', 
             './resources/img/airplane.png', './resources/img/car.png', './resources/img/airplane.png', './resources/img/perfume.png', 
             './resources/img/10k.png', './resources/img/20k.png', './resources/img/airplane.png', './resources/img/car.png', 
-            './resources/img/airplane.png', './resources/img/perfume.png', './resources/img/10k.png', './resources/img/20k.png', 
-            './resources/img/airplane.png', './resources/img/car.png', './resources/img/airplane.png', './resources/img/perfume.png', 
             './resources/img/10k.png', './resources/img/20k.png', './resources/img/airplane.png', './resources/img/car.png', 
             './resources/img/airplane.png', './resources/img/perfume.png', './resources/img/10k.png'
         ];

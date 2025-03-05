@@ -25,14 +25,14 @@ $db->exec("CREATE TABLE IF NOT EXISTS usuarios (
 )");
 
 $existing = $db->query("SELECT COUNT(*) FROM premios")->fetchColumn();
-if ($existing == 0) {
+if ($existing == 1) {
     $db->exec("INSERT INTO premios (nombre, cada_n_compras, disponibles, img_name) VALUES 
         ('🎁 Voucher 10,000 pesos', 5, 1000, '10k.png'),   
         ('🎁 Voucher 20,000 pesos', 24, 200, '20k.png'),  
         ('🌸 Perfume', 11, 500, 'perfume.png'),               
-        ('✈️ Viaje aéreo para 2 personas', 499, 10, 'airplane.png'),          
-        ('🇧🇷 Viaje a Brasil para 2 personas', 2500, 1, 'airplane.png'),     
-        ('🚗 Automovil 0 km', 4950, 1, 'car.png')      
+        ('✈️ Viaje aéreo para 2 personas', 499, 10, 'argetina.png'),          
+        ('🇧🇷 Viaje a Brasil para 2 personas', 2500, 1, 'brasil.png'),     
+        ('🚗 Automovil 0 km', 4950, 1, 'auto.png')      
     ");
 }
 function obtener_premios($db) {

@@ -26,22 +26,24 @@
     winnerStatus = data.winnerStatus;
     items = (data.slots);
     backgroundMachine(winnerStatus)
-    await new Promise((resolve) => setTimeout(resolve, 3500));
     init(false, 1, 4);
+    let status = false;
     for (const door of doors) {
       const boxes = door.querySelector(".boxes");
       //const duration = parseInt(boxes.style.transitionDuration);
       boxes.style.transform = "translateY(0)";
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      
+      await new Promise((resolve) => setTimeout(resolve, 800));
+     
     }
     if(winnerStatus){
-      setTimeout(showConfetti, 5000);
+      setTimeout(showConfetti, 3400);
       setTimeout(() => {
         showModal("background-modal-winner");
         showLoadDataWinner('winner-name', `!${data.winnerName}!`);
         showLoadDataWinner('winner-data', data.winnerData);
         showLoadDataWinner('winner-email', data.winnerEmail);
-      },10500);
+      },6000);
     }
     
   }
