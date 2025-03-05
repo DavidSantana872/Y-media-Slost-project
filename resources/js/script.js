@@ -17,8 +17,6 @@
     const telephone = button.getAttribute("data-telephone");
     const bank = button.getAttribute("data-bank");
     spin(userId, purchaseNumber, name, lastName, email, telephone, bank);
-    const video = document.getElementById("slot-machine-video");
-    video.play();
   });
 
 
@@ -28,16 +26,16 @@
     winnerStatus = data.winnerStatus;
     items = (data.slots);
     backgroundMachine(winnerStatus)
-
-    init(false, 1, 10);
+    await new Promise((resolve) => setTimeout(resolve, 3500));
+    init(false, 1, 4);
     for (const door of doors) {
       const boxes = door.querySelector(".boxes");
       //const duration = parseInt(boxes.style.transitionDuration);
       boxes.style.transform = "translateY(0)";
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      await new Promise((resolve) => setTimeout(resolve, 500));
     }
     if(winnerStatus){
-      setTimeout(showConfetti, 9000);
+      setTimeout(showConfetti, 5000);
       setTimeout(() => {
         showModal("background-modal-winner");
         showLoadDataWinner('winner-name', `!${data.winnerName}!`);
@@ -49,8 +47,13 @@
   }
 
   function backgroundMachine(winner){
-    let video = document.getElementById("slot-machine-video");
-    video.src = winner ? "./resources/video/winner.mp4" : "./resources/video/loser.mp4";
+    if(winner){
+      document.getElementById('slot-machine-video-winner').style.display = 'block';
+      document.getElementById('slot-machine-video-loser').style.display = 'none';
+    }
+    let video = document.getElementById(`slot-machine-video-${winner ? 'winner' : 'loser'}`);
+
+    video.play();
   } 
   function init(firstInit = true, groups = 1, duration = 1) {
     for (const door of doors) {

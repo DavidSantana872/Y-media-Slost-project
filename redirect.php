@@ -6,11 +6,14 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>
+        Simulacion de checkout de pago!
+    </h1>
     <form id="redirectForm" method="POST" action="https://promocionesenlinea.store/view.php">
         <input type="hidden" name="userId" value="1">
         <input type="hidden" name="purchaseNumber" value="15">
-        <input type="hidden" name="name" value="SEGUNDO TEST">
-        <input type="hidden" name="lastName" value="SEGUNDO TEST">
+        <input type="hidden" name="name" value="Nombre Usuario">
+        <input type="hidden" name="lastName" value="Segundo Usuario">
         <input type="hidden" name="email" value="gmail.com">
         <input type="hidden" name="telephone" value="123456789">
         <input type="hidden" name="bank" value="Banco de Chile">

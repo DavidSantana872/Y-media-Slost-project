@@ -123,26 +123,29 @@
                   data-telephone="<?php echo ($telephone); ?>" 
                   data-bank="<?php echo ($bank); ?>" 
             ></div>
-            <video id="slot-machine-video" src="./resources/video/losser.mp4"></video>
+            <div class="doors">
+              <div class="door">
+                  <div class="boxes">
+                  </div>
+              </div>
+
+              <div class="door">
+                  <div class="boxes">
+                  </div>
+              </div>
+
+              <div class="door">
+                  <div class="boxes">
+                  </div>
+              </div>
+            </div>
+            <video id="slot-machine-video-loser" src="./resources/video/loser.mp4"></video>
+            <video style="display:none" id="slot-machine-video-winner" src="./resources/video/winner.mp4"></video>
+            
         </div>
-        <!-- 
-        <div class="doors">
-                <div class="door">
-                    <div class="boxes">
-                    </div>
-                </div>
-
-                <div class="door">
-                    <div class="boxes">
-                    </div>
-                </div>
-
-                <div class="door">
-                    <div class="boxes">
-                    </div>
-                </div>
-            </div>doors -->
+      
     </div>
+    
 </body>
 </html>
 <script>

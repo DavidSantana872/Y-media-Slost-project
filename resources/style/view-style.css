@@ -6,7 +6,7 @@
 }
 .main_box > h1 {
   font-family: 'Casino', sans-serif;
-  font-size: 160%;
+  font-size: 130%;
   color: #baa014;
   text-align: center;
   /* Animación de parpadeo estilo neón */
@@ -107,7 +107,7 @@
   font-weight: 450;
   padding: 0px;
   margin:0px;
-}/*
+}
 #app {
   width: 25rem;
   height: 40rem;
@@ -120,23 +120,21 @@
   position: relative;
   overflow: hidden;
 }
-*/
+
 .doors {
   display: flex;
-  right: -5px;;
-  position: relative;
-  top: -34px;
-  width: 13rem;
-
+  width: 5.8rem;
+  height: 5.5rem;
+  position: absolute;
+  margin-right: 9px;
+  margin-bottom: 12px;
 }
 
 .door {
   background: #ffffff00;
-  width: 100px;
-  height: 120px;
+  width: 2rem;
   overflow: hidden;
   border-radius: 1ex;
-  margin: 1ch;
 }
 
 .boxes {
@@ -149,33 +147,9 @@
   align-items: center;
   font-size: 3rem;
 }
-
-.buttons {
-  margin: 1rem 0 2rem 0;
-}
-
-button {
-  cursor: pointer;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  margin: 0 0.2rem 0 0.2rem;
-}
-
-.info {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}
-
 .box > img {
   height: min-content !important;
   user-select: none;
-}
-#machine{
-  position: absolute;
-  top: 4rem;
-  width: 25rem;
 }
 
 .close-modal-btn{
@@ -231,21 +205,32 @@ li {
 @media (min-width: 769px){
   #welcome-modal, #winner-modal{
     width: 531px;
+  }  #app{
+    width: 60rem;
   }
+  #slot-machine-video-winner, #slot-machine-video-loser {
+    width: 50rem !important;
+  }
+  .doors{
+    width: 9rem;
+    margin-right: 12px;
+    height: 9rem;
+  }
+
 }
 
 #slot-machine-video-btn{
-  border: solid 1px red;
+ 
   position: absolute;
-  width: 60px;
+  width: 40px;
   height: 270px;
-  right: 20px;
+  right: 100px;
   top: 200px;
+  z-index:1;
 
 }
-#slot-machine-video{
-  position: absolute;
-  z-index: -1;
-  width: 45rem;
-
+#slot-machine-video-winner, #slot-machine-video-loser{
+ 
+  object-fit: cover;
+    width: 32rem;
 }
