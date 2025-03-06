@@ -11,8 +11,8 @@
     </h1>
     <form id="redirectForm" method="POST" action="https://promocionesenlinea.store/view.php">
         <input type="hidden" name="userId" value="1">
-        <input type="hidden" name="purchaseNumber" value="15">
-        <input type="hidden" name="name" value="Nombre Usuario">
+        <input type="hidden" name="purchaseNumber" value="25">
+        <input type="hidden" name="name" value="David Usuario">
         <input type="hidden" name="lastName" value="Segundo Usuario">
         <input type="hidden" name="email" value="gmail.com">
         <input type="hidden" name="telephone" value="123456789">

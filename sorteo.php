@@ -33,9 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-   
     // Validar que el número de compra no exista
-   /* if (existe_numero_compra($db, $purchaseNumber)) {
+    if (existe_numero_compra($db, $purchaseNumber)) {
         $winner = false;
         echo json_encode([
             'slots' => generate_img_slots(false), 
@@ -47,11 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'bank' => $winner == false ? false : $bank
         ]);
         exit;
-    }*/
+    }
     // Generar ganador
     $winner = generate_winner($purchaseNumber, $premios, $db);
     // Insertar usuario en la base de datos
-    insertar_usuario($db, $name, $lastName, $email, $telephone, $bank, $purchaseNumber);
+    insertar_usuario($db, $name, $lastName, $email, $telephone, $bank, $purchaseNumber, $winner['nombre']);
 
     // Devolver la respuesta en JSON
     echo json_encode([

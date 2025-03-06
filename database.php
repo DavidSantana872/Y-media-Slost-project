@@ -13,6 +13,7 @@ $db->exec("CREATE TABLE IF NOT EXISTS premios (
     img_name TEXT
 )");
 
+
 $db->exec("CREATE TABLE IF NOT EXISTS usuarios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nombre TEXT,
@@ -21,6 +22,7 @@ $db->exec("CREATE TABLE IF NOT EXISTS usuarios (
     telefono TEXT,
     banco TEXT,
     purchase_number INTEGER,
+    name_award TEXT,
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )");
 
@@ -41,18 +43,20 @@ function obtener_premios($db) {
 }
 
 function update_disponibilidad($db, $premio, $disponible) {
+   // echo json_encode(["premio" => $premio, "disponible" => $disponible]);
     $db->exec("UPDATE premios SET disponibles = $disponible WHERE id = $premio[id]");
 }
 
-function insertar_usuario($db, $nombre, $apellido, $email, $telefono, $banco, $purchase_number) {
-    $stmt = $db->prepare("INSERT INTO usuarios (nombre, apellido, email, telefono, banco, purchase_number) VALUES (:nombre, :apellido, :email, :telefono, :banco, :purchase_number)");
+function insertar_usuario($db, $nombre, $apellido, $email, $telefono, $banco, $purchase_number, $name_award) {
+    $stmt = $db->prepare("INSERT INTO usuarios (nombre, apellido, email, telefono, banco, purchase_number, name_award) VALUES (:nombre, :apellido, :email, :telefono, :banco, :purchase_number, :name_award)");
     $stmt->execute([
         ':nombre' => $nombre,
         ':apellido' => $apellido,
         ':email' => $email,
         ':telefono' => $telefono,
         ':banco' => $banco,
-        ':purchase_number' => $purchase_number
+        ':purchase_number' => $purchase_number,
+        ':name_award' => $name_award
     ]);
 }
 
