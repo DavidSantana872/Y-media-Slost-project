@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telephone = filter_var($object['telephone'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $bank = filter_var($object['bank'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+   
     // Validar que no haya datos vacíos
     if (!$userId || !$purchaseNumber || !$name || !$lastName || !$email || !$telephone || !$bank) {
         echo json_encode(['error' => 400, 'message' => 'Missing required fields']);
@@ -33,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    
     // Validar que el número de compra no exista
    /* if (existe_numero_compra($db, $purchaseNumber)) {
         $winner = false;

@@ -29,7 +29,6 @@ $db->exec("CREATE TABLE IF NOT EXISTS usuarios (
 )");
 
 $existing = $db->query("SELECT COUNT(*) FROM premios")->fetchColumn();
-$db->exec("DELETE FROM premios");
 if ($existing == 0) {
     $db->exec("INSERT INTO premios (nombre, cada_n_compras, disponibles, img_name) VALUES 
         ('🎁 Voucher 10,000 pesos', 5, 1000, '10k.png'),   
@@ -41,7 +40,9 @@ if ($existing == 0) {
     ");
 }
 function obtener_premios($db) {
+  
     $premios = $db->query("SELECT * FROM premios")->fetchAll(PDO::FETCH_ASSOC);
+   
     return ($premios);
 }
 
