@@ -23,6 +23,8 @@ $db->exec("CREATE TABLE IF NOT EXISTS usuarios (
     banco TEXT,
     purchase_number INTEGER,
     name_award TEXT,
+    status_mail_user TEXT,
+    status_mail_marketing TEXT,
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )");
 
@@ -48,8 +50,8 @@ function update_disponibilidad($db, $premio, $disponible) {
     $db->exec("UPDATE premios SET disponibles = $disponible WHERE id = $premio[id]");
 }
 
-function insertar_usuario($db, $nombre, $apellido, $email, $telefono, $banco, $purchase_number, $name_award) {
-    $stmt = $db->prepare("INSERT INTO usuarios (nombre, apellido, email, telefono, banco, purchase_number, name_award) VALUES (:nombre, :apellido, :email, :telefono, :banco, :purchase_number, :name_award)");
+function insertar_usuario($db, $nombre, $apellido, $email, $telefono, $banco, $purchase_number, $name_award, $status_mail_user, $status_mail_marketing) {
+    $stmt = $db->prepare("INSERT INTO usuarios (nombre, apellido, email, telefono, banco, purchase_number, name_award, status_mail_user, status_mail_marketing) VALUES (:nombre, :apellido, :email, :telefono, :banco, :purchase_number, :name_award, :status_mail_user, :status_mail_marketing)");
     $stmt->execute([
         ':nombre' => $nombre,
         ':apellido' => $apellido,
@@ -57,7 +59,9 @@ function insertar_usuario($db, $nombre, $apellido, $email, $telefono, $banco, $p
         ':telefono' => $telefono,
         ':banco' => $banco,
         ':purchase_number' => $purchase_number,
-        ':name_award' => $name_award
+        ':name_award' => $name_award,
+        ':status_mail_user' => $status_mail_user,
+        ':status_mail_marketing' => $status_mail_marketing
     ]);
 }
 

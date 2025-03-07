@@ -16,10 +16,11 @@ try {
     $mailInstance->Username = $_ENV['SMTP_USER']; // Tu correo empresarial
     $mailInstance->Password = $_ENV['SMTP_PASSWORD']; // La contraseña de tu correo en Hostinger
     $mailInstance->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Usar SSL
-    $mailInstance->Port = 465; // Cambiar a 587 si usas TLS
+    $mailInstance->Port = 465; // Cambiar a 587 si usas TLS 587 (TLS) suele ser más rápido que 465 (SSL).
 
 } catch (Exception $e) {
     echo "Error al enviar el correo: {$mailInstance->ErrorInfo}";
+    exit;
 }
 
 function send_email($mail, $to, $body, $subject) {

@@ -48,7 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }*/
     // Generar ganador
-    $winner = generate_winner($purchaseNumber, $premios, $db, $email, $name, $lastName, $email, $telephone, $bank);
+ 
+    $winner = generate_winner($purchaseNumber, $premios, $db);
     // Insertar usuario en la base de datos
     $statusMailUser = null;
     $statusMailMarketing = null;
@@ -155,8 +156,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "Nuevo ganador -". $winner['nombre'] .""
         );
     }
-    insertar_usuario($db, $name, $lastName, $email, $telephone, $bank, $purchaseNumber, $winner['nombre']);
-  
+    try{
+        insertar_usuario($db, $name, $lastName, $email, $telephone, $bank, $purchaseNumber, $winner['nombre'], $statusMailUser, $statusMailMarketing);
+    }catch (Exception $e) {
+        echo json_encode(['error' => 500, 'message' => $e]);
+        exit;
+    }
     // Devolver la respuesta en JSON
     echo json_encode([
         'slots' => generate_img_slots($winner['img_name']), 

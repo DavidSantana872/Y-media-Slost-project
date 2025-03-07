@@ -5,6 +5,7 @@
     $auto = 4950;
     function generate_winner ($num_compra, $premios, $db){
         global $viajeBrasil, $auto;
+        
         foreach ($premios as &$premio) { 
             if ($num_compra ==  $premio['cada_n_compras']) {
                 if ($premio['disponibles'] > 0) {
