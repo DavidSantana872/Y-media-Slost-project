@@ -52,6 +52,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Generar ganador
  
     $winner = generate_winner($purchaseNumber, $premios, $db);
+    
+    // Devolver la respuesta en JSON
+    echo json_encode([
+        'slots' => generate_img_slots($winner['img_name']), 
+        'winnerStatus' => $winner == false ? false : true,
+        'winnerName' => $name,
+        'winnerLastName' => $lastName,
+        'winnerData' => $winner == false ? false : $winner['nombre'],
+        'winnerEmail' => $email,
+        'bank' => $winner == false ? false : $bank,
+    ]);
+
+    ignore_user_abort(true);
+    fastcgi_finish_request();
+
     // Insertar usuario en la base de datos
     $statusMailUser = null;
     $statusMailMarketing = null;
@@ -148,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h2>-- Nuevo Ganador --</h2>
                 <p><strong>Nombre del ganador:</strong>". $name . " " . $lastName ."</p>
                 <p><strong>Premio ganado:</strong>" . $winner['nombre'] . "</p>
-                <p><strong>Teléfono de contacto:</strong> ". $telephone ."</p>
+                <p><strong>Telefono de contacto:</strong> ". $telephone ."</p>
                 <p><strong>Correo del ganador:</strong> ". $email ."</p>
                 <p>Por favor, ponganse en contacto con el ganador para coordinar la entrega del premio.</p>
                 <p class='footer'>Atentamente,<br>Equipo de Tienda de Perfumes</p>
@@ -161,21 +176,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try{
         insertar_usuario($db, $name, $lastName, $email, $telephone, $bank, $purchaseNumber, $winner['nombre'], $statusMailUser, $statusMailMarketing);
     }catch (Exception $e) {
-        echo json_encode(['error' => 500, 'message' => $e]);
-        exit;
+        error_log(['error' => 500, 'message' => $e]);
+        
     }
-    // Devolver la respuesta en JSON
-    echo json_encode([
-        'slots' => generate_img_slots($winner['img_name']), 
-        'winnerStatus' => $winner == false ? false : true,
-        'winnerName' => $name,
-        'winnerLastName' => $lastName,
-        'winnerData' => $winner == false ? false : $winner['nombre'],
-        'winnerEmail' => $email,
-        'bank' => $winner == false ? false : $bank,
-        'statusMailUser' => $statusMailUser,
-        'statusMailMarketing' => $statusMailMarketing
-    ]);
-    exit;
+
 }
 ?>
