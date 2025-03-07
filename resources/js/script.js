@@ -24,6 +24,11 @@
     let res = await getAward(userId, purchaseNumber, name, lastName, email, telephone, bank);
     let data = await res.json();
     winnerStatus = data.winnerStatus;
+    if(winnerStatus){
+      document.getElementById('mp3-ganador').play();
+    }else{
+      document.getElementById('mp3-perdedor').play();
+    }
     items = (data.slots);
     backgroundMachine(winnerStatus)
     init(false, 1, 4);

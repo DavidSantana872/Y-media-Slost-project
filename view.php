@@ -111,8 +111,12 @@
 
     <div class="main_box">
         <h1>
-        ¡Tira de la palanca y prueba tu suerte!
+        ¡Click en la palanca y prueba tu suerte!
+      
         </h1>
+        <audio  id="mp3-perdedor" src="./resources/audio/perdedor.mp3"></audio>
+        <audio  id="mp3-ganador"src="./resources/audio/ganador.mp3"></audio>
+    
         <div id="app">
             <div id="slot-machine-video-btn"
                   data-user-id="<?php echo ($userId); ?>" 
@@ -139,13 +143,13 @@
                   </div>
               </div>
             </div>
-            <video id="slot-machine-video-loser" src="./resources/video/loser.mp4"></video>
-            <video style="display:none" id="slot-machine-video-winner" src="./resources/video/winner.mp4"></video>
+            <video id="slot-machine-video-loser" src="./resources/video/machine.mp4"></video>
+            <video style="display:none" id="slot-machine-video-winner" src="./resources/video/machine.mp4"></video>
             
         </div>
       
     </div>
-    
+   
 </body>
 </html>
 <script>

@@ -27,7 +27,8 @@ $db->exec("CREATE TABLE IF NOT EXISTS usuarios (
 )");
 
 $existing = $db->query("SELECT COUNT(*) FROM premios")->fetchColumn();
-if ($existing == 1) {
+$db->exec("DELETE FROM premios");
+if ($existing == 0) {
     $db->exec("INSERT INTO premios (nombre, cada_n_compras, disponibles, img_name) VALUES 
         ('🎁 Voucher 10,000 pesos', 5, 1000, '10k.png'),   
         ('🎁 Voucher 20,000 pesos', 24, 200, '20k.png'),  

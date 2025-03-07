@@ -23,16 +23,15 @@
 
     function generate_img_slots($award){
         $arrayImg = [
-            './resources/img/10k.png', './resources/img/20k.png', './resources/img/airplane.png', './resources/img/car.png', 
-            './resources/img/airplane.png', './resources/img/perfume.png', './resources/img/10k.png', './resources/img/20k.png', 
-            './resources/img/airplane.png', './resources/img/car.png', './resources/img/airplane.png', './resources/img/perfume.png', 
-            './resources/img/10k.png', './resources/img/20k.png', './resources/img/airplane.png', './resources/img/car.png', 
-            './resources/img/10k.png', './resources/img/20k.png', './resources/img/airplane.png', './resources/img/car.png', 
-            './resources/img/airplane.png', './resources/img/perfume.png', './resources/img/10k.png', './resources/img/20k.png', 
-            './resources/img/airplane.png', './resources/img/car.png', './resources/img/airplane.png', './resources/img/perfume.png', 
-            './resources/img/10k.png', './resources/img/20k.png', './resources/img/airplane.png', './resources/img/car.png', 
-            './resources/img/10k.png', './resources/img/20k.png', './resources/img/airplane.png', './resources/img/car.png', 
-            './resources/img/airplane.png', './resources/img/perfume.png', './resources/img/10k.png'
+            './resources/img/10k.png', './resources/img/20k.png', './resources/img/argentina.png', './resources/img/auto.png', './resources/img/brasil.png', './resources/img/perfume.png', 
+            './resources/img/10k.png', './resources/img/20k.png', './resources/img/argentina.png', './resources/img/auto.png', './resources/img/brasil.png', './resources/img/perfume.png', 
+            './resources/img/10k.png', './resources/img/20k.png', './resources/img/argentina.png', './resources/img/auto.png', './resources/img/brasil.png', './resources/img/perfume.png', 
+            './resources/img/10k.png', './resources/img/20k.png', './resources/img/argentina.png', './resources/img/auto.png', './resources/img/brasil.png', './resources/img/perfume.png', 
+            './resources/img/10k.png', './resources/img/20k.png', './resources/img/argentina.png', './resources/img/auto.png', './resources/img/brasil.png', './resources/img/perfume.png', 
+            './resources/img/10k.png', './resources/img/20k.png', './resources/img/argentina.png', './resources/img/auto.png', './resources/img/brasil.png', './resources/img/perfume.png', 
+            './resources/img/10k.png', './resources/img/20k.png', './resources/img/argentina.png', './resources/img/auto.png', './resources/img/brasil.png', './resources/img/perfume.png', 
+            './resources/img/10k.png', './resources/img/20k.png', './resources/img/argentina.png', './resources/img/auto.png', './resources/img/brasil.png', './resources/img/perfume.png', 
+            './resources/img/10k.png'
         ];
         if ($award) {
             if($award == '10k.png'){
